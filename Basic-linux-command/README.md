@@ -75,9 +75,8 @@ ps aux – List all running processes.
 
 top – Display real-time process monitoring.
 
-htop – Interactive process viewer (installable).
+htop – Interactive process viewer (installable)
 
-kill PId --- terminate the process
 --------------------------------------------------------------------------------------------------------------------
 
 1. Disk & Partition Management
@@ -100,6 +99,5 @@ umount /mnt/data – Unmount a storage device.
 
 mount -o remount,rw / – Remount root as read-write.
 
-df -h – Show available disk space.
 -----------------------------------------------------------------------------------------------------------------------
 
