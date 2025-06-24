@@ -1,5 +1,5 @@
 # Simple Flask Web App with Docker
- 
+ Docker Hub image Url: https://hub.docker.com/r/moschipsamarth/simple-flask-app
 A basic Flask web application containerized with Docker.
  
 ## Setup Instructions
@@ -13,7 +13,10 @@ A basic Flask web application containerized with Docker.
 git clone "git@github.com:samarth-moschip/DevOps-Training-Samarth.git"
    cd simple-flask-app
    ```
+ (by using my images you can directly pull images moschipsamarth/simple-flask-app)
  
+``docker pull moschipsamarth/simple-flask-app```
+
 2. Build the Docker image:
    ```bash
    docker build -t simple-flask-app .
