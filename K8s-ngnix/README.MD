@@ -17,12 +17,24 @@ This project demonstrates how to deploy an NGINX web server using a Kubernetes D
 minikube start --driver=qemu2
 
 ```
+
+### 2. Deployement and service using yaml
+```bash
 kubectl apply nginx-deployment.yaml
+```
+```bash
 kubectl apply nginx-service.yaml
 
+```
 
+```bash
 
 kubectl get pods 
+``````bash
 kubectl get svc
+
+```
+
+
 
 
