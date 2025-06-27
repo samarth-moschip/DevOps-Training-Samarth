@@ -30,9 +30,10 @@ kubectl apply nginx-service.yaml
 ```bash
 
 kubectl get pods 
+```
+
 ``````bash
 kubectl get svc
-
 ```
 
 
