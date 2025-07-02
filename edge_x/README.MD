@@ -81,6 +81,7 @@ pip install -e .
 ```
 
 ---
+http://172.17.0.248:4000/en-US/#/core-data/event
 
 ## 🧩 Add Python App Service to Docker Compose
 
