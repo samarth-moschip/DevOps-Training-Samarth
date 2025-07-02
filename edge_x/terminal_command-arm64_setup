@@ -1,0 +1,88 @@
+
+Terminal-1
+
+installtion steps:  
+
+mkdir project
+git clone git@github.com:edgexfoundry/edgex-compose.git
+cd edgex-compose/
+git checkout odessa 
+cd compose-builder/
+sudo make run ds-opc-ua ds-mqtt mqtt-broker no-secty arm64
+docker images
+docke ps 
+docker logs edgex-core-data 
+docker logs edgex-device-opc-ua 
+sudo docker compose down(for removing docker container)
+
+
+
+
+
+
+Terminal-2
+cd project/
+cd edgex-compose/
+cd compose-builder/
+git clone https://github.com/edgexfoundry/app-functions-sdk-python.git
+cd app-functions-sdk-python/
+cd app-service-template/
+cd ..
+sudo  apt install python3.10-venv
+sudo  apt install python3.10-venv --fix-missing
+sudo apt-get update 
+sudo  apt-get install python3.10-venv --fix-missing
+sudo apt install python3-pip-whl
+sudo  apt-get install python3.10-venv --fix-missing
+python3.10 -m venv venv
+source ./venv/bin/activate
+pip install -e .
+cd ..
+sudo vim docker-compose.yml 
+
+
+
+
+
+-----------------------------------------copy paste (above --support-notifications-)--------------------------
+
+
+
+app-service-python:
+    image: app-service-python:latest
+    container_name: app-service-python
+    restart: unless-stopped
+    ports:
+      - "59780:59780"  # Expose if you want to call HTTP endpoints
+    environment:
+      EDGEX_SECURITY_SECRET_STORE: "false"
+      EDGEX_USE_REGISTRY: "false"
+      Service_Host: app-service-python
+      Service_Port: 59780
+      MessageBus_Type: mqtt
+      MessageBus_Protocol: tcp
+      MessageBus_Host: edgex-mqtt-broker
+      MessageBus_Port: "1883"
+      MessageBus_AuthMode: none
+      MessageBus_Optional_ClientId: "app-service-python"
+      Trigger_Type: edgex-messagebus
+        #Trigger_SubscribeTopics: "edgex/events/device/#"
+    volumes:
+      - ./res:/res   # your config folder
+    command: ["python3", "main.py", "-cc=./res/common-configuration.yaml"]   
+    networks:
+      - edgex-network    
+    depends_on:
+      core-data:
+        condition: service_started
+      mqtt-broker:
+        condition: service_started
+      core-common-config-bootstrapper:
+        condition: service_started
+ 
+-----------------------------------------copy paste ---------------------------
+
+sudo docker compose up -d
+sudo docker logs app-service-python 
+docker ps
+sudo docker logs app-service-python 
