@@ -1,4 +1,3 @@
-Here is a **README.md** tailored specifically for setting up and running your Kubernetes EKS cluster **from an Ubuntu VM (EC2 instance)** acting as your control machine. This file assumes you're doing everything via terminal on that Ubuntu EC2 instance.
 
 ---
 
@@ -220,7 +219,5 @@ Ensure that:
 ```
 
 ---
-
-Let me know if you’d like me to turn this into a downloadable `.md` file or need instructions for using a LoadBalancer, setting up Ingress, or TLS (HTTPS).
 ```
 
