@@ -5,6 +5,7 @@
 
 This guide walks through setting up the EdgeX Foundry environment using `edgex-compose` on the `odessa` branch, running on ARM64, and integrating a custom **Python App Service** using the `app-functions-sdk-python`.
 
+https://github.com/edgexfoundry/edgex-compose/tree/odessa
 ---
 
 ## 🧱 Prerequisites
